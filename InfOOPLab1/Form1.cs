@@ -22,7 +22,7 @@ namespace InfOOPLab1
         {
 
         }
-
+        //Task 1 "Calculate" button
         private void button1_Click(object sender, EventArgs e)
         {
             double x;
@@ -46,6 +46,26 @@ namespace InfOOPLab1
     private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        //Task 2 "Calculate" button
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double x = Convert.ToDouble(textBox4.Text);
+                double num1 = Math.Sqrt(3.0) / 2.0 * x;
+                double num2 = Math.Sqrt(3.0) / 4.0 * Math.Pow(x, 2.0);
+                double num3 = Math.Sqrt(3.0) / 6.0 * x;
+                double num4 = Math.Sqrt(3.0) / 3.0 * x;
+                textBox5.Text = Convert.ToString(num1);
+                textBox6.Text = Convert.ToString(num2);
+                textBox7.Text = Convert.ToString(num3);
+                textBox8.Text = Convert.ToString(num4);
+            }
+            catch (Exception ex)
+            {
+                int num = (int)MessageBox.Show(ex.Message);
+            }
         }
     }
 }
