@@ -22,7 +22,7 @@ namespace InfOOPLab1
         {
 
         }
-        //Task 1 "Calculate" button
+        //Task 1 "Calculate" button (button1)
         private void button1_Click(object sender, EventArgs e)
         {
             double x;
@@ -42,12 +42,12 @@ namespace InfOOPLab1
             }
 
         }
-
-    private void textBox1_TextChanged(object sender, EventArgs e)
+        //Unused
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-        //Task 2 "Calculate" button
+        //Task 2 "Calculate" button (button2)
         private void button2_Click(object sender, EventArgs e)
         {
             try
@@ -65,6 +65,35 @@ namespace InfOOPLab1
             catch (Exception ex)
             {
                 int num = (int)MessageBox.Show(ex.Message);
+            }
+        }
+        //Task 3 "Check" button (button3)
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string numberString = textBox7.Text;
+                int last_digit = -10;
+                bool pass = false;
+                foreach (char c in numberString)
+                {
+                    int next_digit = int.Parse(c.ToString());
+                    if (last_digit < next_digit)
+                    {
+                        last_digit = next_digit;
+                        pass = true;
+                    }
+                    else
+                    {
+                        pass = false;
+                        break;
+                    }
+                }
+                label11.Text = Convert.ToString(pass);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
