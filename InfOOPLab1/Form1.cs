@@ -72,21 +72,23 @@ namespace InfOOPLab1
         {
             try
             {
-                string numberString = textBox7.Text;
+                string numberString = textBox9.Text;
                 int last_digit = -10;
                 bool pass = false;
                 foreach (char c in numberString)
                 {
                     int next_digit = int.Parse(c.ToString());
-                    if (last_digit < next_digit)
-                    {
-                        last_digit = next_digit;
-                        pass = true;
-                    }
-                    else
+                    Console.WriteLine(next_digit);
+                    Console.WriteLine(pass);
+                    if (last_digit > next_digit)
                     {
                         pass = false;
                         break;
+                    }
+                    else
+                    {
+                        last_digit = next_digit;
+                        pass = true;
                     }
                 }
                 label11.Text = Convert.ToString(pass);
