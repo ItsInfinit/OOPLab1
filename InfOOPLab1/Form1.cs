@@ -204,8 +204,8 @@ namespace InfOOPLab1
             }
             else
             {
-                MessageBox.Show("Replaced " + reps + " symbols\nEdited text written in textbox");
                 textBox16.Text = str;
+                MessageBox.Show("Replaced " + reps + " symbols\nEdited text written in textbox");
             }
         }
     }
