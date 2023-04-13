@@ -86,7 +86,7 @@ namespace InfOOPLab1
                 bool pass = false;
                 foreach (char c in numberString)
                 {
-                    int next_digit = int.Parse(c.ToString());
+                    int next_digit = int.Parse(Convert.ToString(c));
                     Console.WriteLine(next_digit);
                     Console.WriteLine(pass);
                     if (last_digit > next_digit)
@@ -129,12 +129,58 @@ namespace InfOOPLab1
                 }
                 else
                 {
-                    MessageBox.Show($"The triangle with sides {a}, {b}, and {c} does not exist.");
+                    MessageBox.Show("A triangle with this sides does not exist.");
                 }
             }
             catch (Exception ex) 
             {
                 MessageBox.Show(ex.Message); 
+            }
+        }
+
+        //Task 5 "Check" button (button5)
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int n;
+            int count = 0;
+            try
+            {
+                n = Convert.ToInt32(textBox14.Text);
+                for (int i = 1; i <= n; i++)
+                {
+                    if (i % 2 != 0 && i % 3 != 0 && i % 5 != 0)
+                    {
+                        count++;
+                    }
+                }
+                label18.Text = "There are " + count + " numbers that satisfy the condition";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            String str = textBox15.Text;
+            String[] words = str.Split(' ');
+            String output ="";
+            for (int i = 0; i < words.Length; i++)
+            {
+                string word = words[i];
+                if (word.Length > 0 && word[0] == word[word.Length - 1])
+                {
+                    output = output + (" " + word);
+                }
+            }
+            if (output != "")
+            {
+                MessageBox.Show("Words that satisfy condition: \n" + output);
+            }
+            else
+            {
+                MessageBox.Show("There is no words that satisfy condition");
             }
         }
     }
