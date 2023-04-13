@@ -22,6 +22,7 @@ namespace InfOOPLab1
         {
 
         }
+        
         //Task 1 "Calculate" button (button1)
         private void button1_Click(object sender, EventArgs e)
         {
@@ -42,31 +43,39 @@ namespace InfOOPLab1
             }
 
         }
+        
         //Unused
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
+        
         //Task 2 "Calculate" button (button2)
         private void button2_Click(object sender, EventArgs e)
         {
+            double a;
+            double h;
+            double s;
+            double r;
+            double R;
             try
             {
-                double x = Convert.ToDouble(textBox4.Text);
-                double num1 = Math.Sqrt(3.0) / 2.0 * x;
-                double num2 = Math.Sqrt(3.0) / 4.0 * Math.Pow(x, 2.0);
-                double num3 = Math.Sqrt(3.0) / 6.0 * x;
-                double num4 = Math.Sqrt(3.0) / 3.0 * x;
-                textBox5.Text = Convert.ToString(num1);
-                textBox6.Text = Convert.ToString(num2);
-                textBox7.Text = Convert.ToString(num3);
-                textBox8.Text = Convert.ToString(num4);
+                a = Convert.ToDouble(textBox4.Text);
+                h = Math.Sqrt(3) / 2 * a;
+                s = Math.Sqrt(3) / 4 * Math.Pow(a, 2);
+                r = Math.Sqrt(3) / 6 * a;
+                R = Math.Sqrt(3) / 3 * a;
+                textBox5.Text = Convert.ToString(h);
+                textBox6.Text = Convert.ToString(s);
+                textBox7.Text = Convert.ToString(r);
+                textBox8.Text = Convert.ToString(R);
             }
             catch (Exception ex)
             {
-                int num = (int)MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
+        
         //Task 3 "Check" button (button3)
         private void button3_Click(object sender, EventArgs e)
         {
@@ -96,6 +105,36 @@ namespace InfOOPLab1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+        
+        //Task 4 "Calculate" button (button4)
+        private void button4_Click(object sender, EventArgs e)
+        {
+            double a;
+            double b;
+            double c;
+            double p;
+            double s;
+            try
+            {
+                a = Convert.ToDouble(textBox10.Text);
+                b = Convert.ToDouble(textBox11.Text);
+                c = Convert.ToDouble(textBox12.Text);
+                if ((a + b > c) && (a + c > b) && (b + c > a))
+                {
+                    p = (a + b + c) / 2;
+                    s = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
+                    textBox13.Text = Convert.ToString(s);
+                }
+                else
+                {
+                    MessageBox.Show($"The triangle with sides {a}, {b}, and {c} does not exist.");
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message); 
             }
         }
     }
