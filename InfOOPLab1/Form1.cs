@@ -183,5 +183,30 @@ namespace InfOOPLab1
                 MessageBox.Show("There is no words that satisfy condition");
             }
         }
+
+        //Task 7 "Replace" button (button7)
+        private void button7_Click(object sender, EventArgs e)
+        {
+            String str = textBox16.Text;
+            int reps = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == ':')
+                {
+                    str = str.Substring(0, i) + ";" + str.Substring(i + 1);
+                    reps++;
+
+                }
+            }
+            if (reps == 0)
+            {
+                MessageBox.Show("Nothing to replace");
+            }
+            else
+            {
+                MessageBox.Show("Replaced " + reps + " symbols\nEdited text written in textbox");
+                textBox16.Text = str;
+            }
+        }
     }
 }
